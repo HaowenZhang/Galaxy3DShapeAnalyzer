@@ -1,0 +1,42 @@
+***NOTE***: If you have any questions/problems about the code, this document, or even the paper mentioned, please do send emails to: hwzhang0595@email.arizona.edu, or zhw11387@gmail.com, and I will try to help as much as I can.
+
+0. Purpose
+ 	This is a object-oriented (poorly-written, though) code that decomposes the ***projected*** b/a axis ratio-lgSMA distribution in order to investigate the evolution of galaxies' intrinsic shapes with CANDELS data. Specifically, we used GALFIT measurements of ***projected*** b/a axis ratios and (log10 of) half-light semi-major axis of star-forming galaxies with 0.5 < z < 2.5 and 9.0 < log(M_*). < 10.5. For more details please see Zhang et al. (2019, arXiv: 1805.12331). Although we used it for this particular sample, this code can be used to model projected b/a-lgSMA distributions of any galaxy sample, as long as one can measure their redshift, stellar mass, projected b/a, and SMA.
+
+1. About the Code:
+	1.1 Dependencies
+		1.1.1 Python2
+			This code is written when I was still using Python2, therefore one has to have a Python2 executable to run this code.
+		1.1.2 SciPy
+			This package will be used to calculate some special functions,do some statistical manipulations (e.g. 2D histogram making), and to read data from .mat files
+		1.1.3 NumPy
+			This package will be used to do some trigonometric and linear algebra calculations.
+		1.1.4 emcee
+			The Markov Chain Monte-Carlo (MCMC) in this code is done with emcee, a commonly used MCMC package developed by Dan Foreman-Mackey (at NYU) and other contributors.
+		1.1.5 schwimmbad
+			This package provides the API needed for using MPI in emcee.
+		1.1.6 corner
+			This package will be used to generate classical corner plots in the analysis of MCMC results.
+		1.1.7 pandas
+			This package will be used to read data that are stored in text files.
+		1.1.8 h5py
+			This package will be used to read some large chunk of data stored in .mat files.
+		1.1.9 Other built-in packages
+
+
+	1.2 Notes about the notations
+		The meaning of symbol "a" in this code is sometimes confusing. So to clarify: All the "a" in the occurence of "(E, T, a)" refers to ***the log10 of*** the longest main axis of the galaxy, namely, the (E, T, a) here is equivalent to the "(E, T, \gamma)" in Zhang et al. (2019); while when it comes to ***projected*** b/a, "a" refers to the half-light semi-major axis measured by GALFIT (for real galaxies) or calculated from the ellipsoid projection algorithm (i.e. axis_ratio_2d()) (for model galaxies); "a" in the occurences of "intrinsic c/a" or "intrinsic b/a" refer to the intrinsic longest main axis, not its log10.
+
+	1.3 Usage:
+		The usage of the code is basically shown by the example in the "main function" at the bottom of the code. Basically one needs to generate an ensemble of ***projected b/a-lgSMA*** distributions (or two-dimensional histograms) corresponding to a series of (E, T, a) values and use them as basis to decompose the observed b/a-lgSMA distribution. Note that the file containing these bases is large. After generating these bases, one can go ahead using them to do modeling.
+
+		To do modeling, one needs a .mat file containing the variable "mass", "redshift", "ba", "sma", corresonding to the arrays of stellar masses, redshifts, projected b/a axis ratios, and ***log10 of*** half-light semi-major axes of the observed galaxy population.
+
+		Making plots based on the best fitting parameters is relatively easy, please see the examples in the code.
+
+	1.4 Apology
+		This is a poorly-written Python2 code that tries to be object-oriented, but I think this is a bad experiment. So I sincerely apologize for any inconvenience in using the code due to my coding skill.
+		If you have any questions/problems about the code, please send emails to: hwzhang0595@email.arizona, or zhw11387@gmail.com, and I will try to help as much as I can.
+
+2. Citing this code:
+	TBD
