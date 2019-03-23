@@ -1,2 +1,2 @@
 # Galaxy3DShapeAnalyzer
-The routine of obtaining the intrinsic 3D shape distributions of galaxies given the projected size-shape distributions.
+The routine of obtaining the intrinsic 3D shape distributions of galaxies given the projected size-shape distributions. This code is used to analyze the 2D projected size-shape distributions of CANDELS star-forming galaxies in order to infer their intrinsic shape distributions. Anyone who is interested is more than welcome to use this code. If you want to use it, please send an notification to zhw11387@gmail.com, and cite this paper: https://academic.oup.com/mnras/article-abstract/484/4/5170/5307087?redirectedFrom=fulltext .
